@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Embragues J. Gómez</title>
+    <meta name="description" content="Contacte a Embragues J. Gómez en Bogotá. Transmisiones y cajas de cambio para vehículos pesados.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Oswald & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F26522',
+                            orangeHover: '#d95416',
+                            darkBg: '#0b0f14',
+                            cardBg: '#12171f',
+                            cardBgHover: '#1a222e',
+                            cardBorder: '#1e293b',
+                            textMuted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Oswald', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Foco visible para teclado (accesibilidad) */
+        a:focus-visible, button:focus-visible, input:focus-visible,
+        select:focus-visible, textarea:focus-visible {
+            outline: 2px solid #F26522;
+            outline-offset: 2px;
+        }
+        /* Campo con error */
+        .field-error { border-color: #ef4444 !important; }
+        /* Select con flecha propia (fondo oscuro) */
+        select.custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23F26522' stroke-width='2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            * { transition: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-brand-darkBg text-gray-200 antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-darkBg/90 backdrop-blur-md border-b border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- LOGO -->
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Embragues J. Gómez, ir al inicio">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-xl shadow-lg shadow-brand-orange/20">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-xl sm:text-2xl tracking-wider text-white leading-none">EMBRAGUES</span>
+                    <span class="font-heading text-xs tracking-widest text-brand-orange leading-none mt-1">J. GÓMEZ</span>
+                </div>
+            </a>
+
+            <!-- NAV DESKTOP -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider" aria-label="Principal">
+                <a href="index.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">INICIO</a>
+                <a href="servicios.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">SERVICIOS</a>
+                <a href="ubicacion.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">UBICACIÓN</a>
+                <a href="contacto.html" aria-current="page" class="text-brand-orange transition-colors duration-200 py-2">CONTACTO</a>
+            </nav>
+
+            <!-- CTA (Desktop) -->
+            <div class="hidden md:block">
+                <a href="#formulario" class="inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-200 shadow-md hover:shadow-brand-orange/30">
+                    COTIZAR
+                </a>
+            </div>
+
+            <!-- HAMBURGUESA (Móvil) -->
+            <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-300 hover:text-white">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- MENÚ MÓVIL -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-gray-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="index.html" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">INICIO</a>
+            <a href="servicios.html" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">SERVICIOS</a>
+            <a href="ubicacion.html" class="mobile-nav-link block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">UBICACIÓN</a>
+            <a href="contacto.html" aria-current="page" class="mobile-nav-link block px-3 py-3 text-base font-medium text-brand-orange">CONTACTO</a>
+            <div class="pt-2">
+                <a href="#formulario" class="mobile-nav-link block w-full text-center px-6 py-3 bg-brand-orange text-white font-heading font-semibold tracking-wider uppercase">COTIZAR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO CONTACTO -->
+        <section class="relative pt-40 pb-20 overflow-hidden bg-cover bg-center"
+                 style="background-image: linear-gradient(to right, rgba(11, 15, 20, 0.97), rgba(11, 15, 20, 0.78)), url('assets/transmission-workshop.webp');">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="max-w-3xl">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="h-0.5 w-8 bg-brand-orange"></span>
+                        <span class="text-brand-orange font-heading font-semibold text-sm sm:text-base tracking-widest uppercase">HABLEMOS DE SU VEHÍCULO</span>
+                    </div>
+
+                    <h1 class="hero-title font-heading font-bold text-white mb-6 tracking-wide">
+                        CONTÁCTENOS
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg mb-8 max-w-xl font-light leading-relaxed">
+                        Cuéntenos qué le pasa a su embrague, transmisión o caja de cambios. Un técnico le responde con un diagnóstico y una cotización clara.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="tel:+573001234567" class="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-base tracking-wider uppercase transition-all duration-200 shadow-lg shadow-brand-orange/20">
+                            <i class="fa-solid fa-phone mr-3 text-sm"></i> LLAMAR AHORA
+                        </a>
+                        <a href="#formulario" class="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-transparent hover:bg-white/5 text-white border border-gray-600 hover:border-gray-400 font-heading font-bold text-base tracking-wider uppercase transition-all duration-200">
+                            ESCRIBIR UN MENSAJE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO + DATOS DE CONTACTO -->
+        <section id="formulario" class="py-24 bg-brand-darkBg scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Encabezado de sección -->
+                <div class="mb-12">
+                    <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">ESCRÍBANOS</span>
+                    <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                        SOLICITE SU <span class="text-brand-orange">DIAGNÓSTICO</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                    <!-- COLUMNA IZQUIERDA: canales de contacto -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <p class="text-gray-300 text-base leading-relaxed font-light max-w-md">
+                            Llámenos si su vehículo está parado y necesita respuesta hoy. Si prefiere, deje sus datos en el formulario y le devolvemos la llamada.
+                        </p>
+
+                        <!-- Canales -->
+                        <div class="space-y-4">
+                            <a href="tel:+573001234567" class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-4 flex items-center gap-4 transition-colors duration-300">
+                                <div class="w-12 h-12 bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-lg shrink-0 transition-all duration-300">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-heading tracking-widest text-gray-400 uppercase block">LLAMAR AHORA</span>
+                                    <span class="text-white font-semibold">+57 300 123 4567</span>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/573001234567?text=Hola%2C%20quisiera%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-4 flex items-center gap-4 transition-colors duration-300">
+                                <div class="w-12 h-12 bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl shrink-0 transition-all duration-300">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-heading tracking-widest text-gray-400 uppercase block">WHATSAPP</span>
+                                    <span class="text-white font-semibold">Escribir por WhatsApp</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:info@embraguesjgomez.com" class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-4 flex items-center gap-4 transition-colors duration-300">
+                                <div class="w-12 h-12 bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-lg shrink-0 transition-all duration-300">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[11px] font-heading tracking-widest text-gray-400 uppercase block">CORREO ELECTRÓNICO</span>
+                                    <span class="text-white font-semibold break-all">info@embraguesjgomez.com</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Horario -->
+                        <div class="bg-brand-cardBg border border-brand-cardBorder p-6">
+                            <div class="flex items-center justify-between gap-4 mb-5">
+                                <h3 class="font-heading font-bold text-lg text-white tracking-wide">HORARIO DE ATENCIÓN</h3>
+                                <span id="open-status" class="inline-flex items-center gap-2 text-[11px] font-heading tracking-widest uppercase text-gray-400" aria-live="polite">
+                                    <span id="open-dot" class="w-2 h-2 rounded-full bg-gray-500"></span>
+                                    <span id="open-text">Consultando…</span>
+                                </span>
+                            </div>
+                            <dl class="text-sm divide-y divide-gray-800/70">
+                                <div class="flex justify-between py-2.5" data-days="1,2,3,4,5">
+                                    <dt class="text-gray-300">Lunes a viernes</dt>
+                                    <dd class="text-white">7:00 am – 6:00 pm</dd>
+                                </div>
+                                <div class="flex justify-between py-2.5" data-days="6">
+                                    <dt class="text-gray-300">Sábados</dt>
+                                    <dd class="text-white">7:00 am – 2:00 pm</dd>
+                                </div>
+                                <div class="flex justify-between py-2.5" data-days="0">
+                                    <dt class="text-gray-300">Domingos</dt>
+                                    <dd class="text-gray-500">Cerrado</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <!-- Garantías -->
+                        <ul class="space-y-4 pt-2">
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                                <span>Diagnóstico sin costo en taller</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                                <span>Garantía escrita en todos los trabajos</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                                <span>Repuestos originales y alternativos de calidad</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-gray-300">
+                                <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                                <span>Servicio a domicilio disponible</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- COLUMNA DERECHA: formulario -->
+                    <div class="lg:col-span-7 bg-brand-cardBg p-6 sm:p-8 border border-brand-cardBorder self-start">
+
+                        <div class="mb-8">
+                            <h3 class="font-heading font-bold text-2xl text-white tracking-wide">ENVÍENOS SU CONSULTA</h3>
+                            <p class="text-brand-textMuted text-sm font-light mt-1">Los campos con * son obligatorios.</p>
+                        </div>
+
+                        <form id="contact-form" class="space-y-6">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">NOMBRE *</label>
+                                    <input type="text" id="name" name="name" required autocomplete="name" placeholder="Carlos Rodríguez"
+                                           class="w-full bg-brand-darkBg border border-gray-800 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                                    <p class="error-msg hidden text-red-400 text-xs mt-1.5" data-for="name">Escriba su nombre.</p>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">TELÉFONO *</label>
+                                    <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+57 300 000 0000"
+                                           class="w-full bg-brand-darkBg border border-gray-800 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                                    <p class="error-msg hidden text-red-400 text-xs mt-1.5" data-for="phone">Escriba un teléfono de 10 dígitos para llamarle.</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">CORREO ELECTRÓNICO</label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="correo@empresa.com"
+                                       class="w-full bg-brand-darkBg border border-gray-800 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                                <p class="error-msg hidden text-red-400 text-xs mt-1.5" data-for="email">Revise el formato del correo, por ejemplo nombre@empresa.com.</p>
+                            </div>
+
+                            <div>
+                                <label for="service" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">SERVICIO REQUERIDO</label>
+                                <select id="service" name="service" class="custom-select w-full bg-brand-darkBg border border-gray-800 text-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                                    <option value="" selected>Seleccione un servicio…</option>
+                                    <option>Reparación de Embragues</option>
+                                    <option>Reparación de Transmisiones</option>
+                                    <option>Cajas de Cambio</option>
+                                    <option>Mantenimiento Preventivo</option>
+                                    <option>Diagnóstico Técnico</option>
+                                    <option>Otro Servicio</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">DESCRIPCIÓN DEL PROBLEMA *</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Ej: el pedal se queda pegado y la caja raspa al meter primera."
+                                          class="w-full bg-brand-darkBg border border-gray-800 text-white placeholder-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none"></textarea>
+                                <p class="error-msg hidden text-red-400 text-xs mt-1.5" data-for="message">Cuéntenos brevemente qué ocurre con el vehículo.</p>
+                            </div>
+
+                            <!-- Consentimiento -->
+                            <div>
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" id="consent" name="consent" required class="mt-0.5 w-4 h-4 shrink-0 accent-[#F26522]">
+                                    <span class="text-xs text-gray-400 leading-relaxed font-light">
+                                        Autorizo a Embragues J. Gómez a usar mis datos para responder esta consulta. *
+                                    </span>
+                                </label>
+                                <p class="error-msg hidden text-red-400 text-xs mt-1.5" data-for="consent">Debe aceptar para poder enviar el mensaje.</p>
+                            </div>
+
+                            <!-- Botones -->
+                            <div class="space-y-3">
+                                <button type="submit" class="w-full py-4 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200 shadow-md">
+                                    ENVIAR MENSAJE <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                                </button>
+                                <button type="button" id="wa-send" class="w-full py-3.5 min-h-[48px] bg-transparent hover:bg-white/5 text-white border border-gray-600 hover:border-gray-400 font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-200">
+                                    <i class="fa-brands fa-whatsapp mr-2 text-base"></i> PREFIERO ENVIARLO POR WHATSAPP
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Mensaje de resultado -->
+                        <div id="form-feedback" role="status" aria-live="polite" tabindex="-1"
+                             class="hidden mt-6 p-4 bg-emerald-900/40 border border-emerald-600 text-emerald-200 text-sm font-medium">
+                            <i class="fa-regular fa-circle-check mr-2"></i>
+                            ¡Gracias! Recibimos su mensaje. Le llamaremos en horario de atención.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ PASA DESPUÉS (secuencia real, por eso lleva numeración) -->
+        <section class="py-24 bg-brand-darkBg border-t border-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="mb-12">
+                    <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">ASÍ TRABAJAMOS</span>
+                    <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                        QUÉ PASA <span class="text-brand-orange">DESPUÉS</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+                </div>
+
+                <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <li class="bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 transition-colors duration-300">
+                        <span class="font-heading font-bold text-4xl text-brand-orange block mb-4" aria-hidden="true">1</span>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">LE LLAMAMOS</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed font-light">Un técnico lo contacta para entender la falla y los síntomas del vehículo.</p>
+                    </li>
+                    <li class="bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 transition-colors duration-300">
+                        <span class="font-heading font-bold text-4xl text-brand-orange block mb-4" aria-hidden="true">2</span>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">REVISAMOS EN TALLER</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed font-light">Usted trae el vehículo o lo recogemos. El diagnóstico no tiene costo.</p>
+                    </li>
+                    <li class="bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 transition-colors duration-300">
+                        <span class="font-heading font-bold text-4xl text-brand-orange block mb-4" aria-hidden="true">3</span>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">COTIZACIÓN CLARA</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed font-light">Le explicamos qué falla, qué repuestos hacen falta, cuánto cuesta y cuánto tarda.</p>
+                    </li>
+                    <li class="bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 transition-colors duration-300">
+                        <span class="font-heading font-bold text-4xl text-brand-orange block mb-4" aria-hidden="true">4</span>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">REPARACIÓN CON GARANTÍA</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed font-light">Si aprueba, reparamos y le entregamos la garantía por escrito.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- MAPA / CÓMO LLEGAR -->
+        <section id="ubicacion" class="py-24 bg-brand-darkBg border-t border-gray-900 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="mb-12">
+                    <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">DÓNDE ESTAMOS</span>
+                    <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                        CÓMO <span class="text-brand-orange">LLEGAR</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-cardBorder overflow-hidden bg-brand-cardBg">
+
+                    <div class="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-cardBorder">
+                        <div class="space-y-8">
+                            <div>
+                                <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">DIRECCIÓN</span>
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-location-dot text-brand-orange mt-1"></i>
+                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                        Calle 13 #45-67, Zona Industrial<br>
+                                        Bogotá, Colombia
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">TELÉFONO</span>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-phone text-brand-orange"></i>
+                                    <a href="tel:+573001234567" class="text-gray-300 text-sm hover:text-brand-orange transition-colors">+57 300 123 4567</a>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">SERVICIO A DOMICILIO</span>
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-truck-front text-brand-orange mt-1"></i>
+                                    <p class="text-gray-300 text-sm leading-relaxed">¿No puede mover el vehículo? Llámenos y coordinamos la visita.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-8">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Embragues+J.+Gomez+Bogota" target="_blank" rel="noopener"
+                               class="inline-flex w-full items-center justify-center px-6 py-3.5 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-semibold tracking-wider uppercase transition-all duration-200">
+                                <i class="fa-solid fa-diamond-turn-right mr-3"></i> ABRIR EN GOOGLE MAPS
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 min-h-[380px] lg:min-h-[450px] relative bg-gray-900">
+                        <iframe title="Mapa de ubicación de Embragues J. Gómez"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.907004107161!2d-74.18196042316359!3d4.610664442427497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9e670c7bd739%3A0xccc2c67402dadef2!2sEmbragues%20J.Gomez!5e0!3m2!1sen!2sco!4v1793675156025!5m2!1sen!2sco"
+                                width="600" height="450" style="border:0;" class="absolute inset-0 w-full h-full border-0"
+                                allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BANDA FINAL -->
+        <section class="py-20 bg-brand-cardBg border-t border-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <h2 class="font-heading font-bold text-2xl sm:text-4xl text-white tracking-wide">
+                        ¿SU VEHÍCULO ESTÁ <span class="text-brand-orange">PARADO?</span>
+                    </h2>
+                    <p class="text-brand-textMuted text-sm sm:text-base font-light mt-2"> Llámenos y lo atendemos.</p>
+                </div>
+                <a href="tel:+573001234567" class="shrink-0 inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200">
+                    <i class="fa-solid fa-phone mr-3 text-sm"></i> +57 300 123 4567
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-gray-900">
+
+                <div class="space-y-4">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center text-base">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-heading font-bold text-lg tracking-wider text-white leading-none">EMBRAGUES</span>
+                            <span class="font-heading text-[10px] tracking-widest text-brand-orange leading-none mt-0.5">J. GÓMEZ</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed font-light">
+                        Especialistas en reparación y mantenimiento de embragues, transmisiones y cajas de cambio para vehículos pesados.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">SERVICIOS</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="servicios.html" class="hover:text-brand-orange transition-colors">Reparación de Embragues</a></li>
+                        <li><a href="servicios.html" class="hover:text-brand-orange transition-colors">Reparación de Transmisiones</a></li>
+                        <li><a href="servicios.html" class="hover:text-brand-orange transition-colors">Cajas de Cambio</a></li>
+                        <li><a href="servicios.html" class="hover:text-brand-orange transition-colors">Mantenimiento Preventivo</a></li>
+                        <li><a href="servicios.html" class="hover:text-brand-orange transition-colors">Diagnóstico Técnico</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">CONTACTO</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-orange"></i>
+                            <a href="tel:+573001234567" class="hover:text-brand-orange transition-colors">+57 300 123 4567</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-envelope text-brand-orange"></i>
+                            <a href="mailto:info@embraguesjgomez.com" class="hover:text-brand-orange transition-colors">info@embraguesjgomez.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                            <span>Calle 13 #45-67, Zona Industrial, Bogotá</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-brand-orange"></i>
+                            <span>Lun-Vie 7am-6pm • Sáb 7am-2pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>© 2026 Embragues J. Gómez. Todos los derechos reservados.</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menú móvil (compartido con el resto del sitio) -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Lógica propia de la página de contacto -->
+    <script src="js/contact_form.js" defer></script>
+</body>
+</html>

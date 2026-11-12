@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios - Embragues J. Gómez Admin</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#F26522',
+                            orangeHover: '#d95416',
+                            sidebar: '#0F172A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="h-full text-slate-800 antialiased flex flex-col md:flex-row min-h-screen">
+
+<!-- OVERLAY NAVEGACIÓN MÓVIL -->
+<div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/60 z-40 hidden md:hidden transition-opacity duration-300"></div>
+
+<!-- NAVEGACIÓN LATERAL / SIDEBAR -->
+<aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-slate-300 flex flex-col transform -translate-x-full md:translate-x-0 md:static md:z-auto transition-transform duration-300 ease-in-out shrink-0">
+
+    <!-- Header Sidebar: Logo & Marca -->
+    <div class="p-5 flex items-center justify-between border-b border-slate-800">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-brand-orange flex items-center justify-center text-white font-bold text-xl shadow-md">
+                <i class="fa-solid => fa-gears"></i>
+            </div>
+            <div>
+                <h1 class="font-extrabold text-white leading-tight tracking-wider text-sm">EMBRAGUES</h1>
+                <p class="text-xs text-slate-400 font-medium">J. GÓMEZ</p>
+            </div>
+        </div>
+        <!-- Botón Cerrar Sidebar en Móvil -->
+        <button id="close-sidebar-btn" class="md:hidden text-slate-400 hover:text-white touch-target" aria-label="Cerrar menú">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+    </div>
+
+    <!-- User Información -->
+    <div class="p-4 mx-3 my-3 bg-slate-800/60 rounded-xl flex items-center gap-3 border border-slate-700/50">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+             alt="José Gómez"
+             class="w-10 h-10 rounded-full object-cover ring-2 ring-brand-orange/50"
+             loading="lazy">
+        <div class="overflow-hidden">
+            <h2 class="text-sm font-semibold text-white truncate" id="userName">José Gómez</h2>
+            <p class="text-xs text-slate-400 truncate">Administrador</p>
+        </div>
+    </div>
+
+    <!-- Menú de Navegación principal -->
+    <nav class="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
+        <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">MENÚ</p>
+
+        <a href="servicios.html" class="flex items-center justify-start gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white font-medium text-sm transition-all touch-target w-full">
+            <i class="fa-solid fa-wrench w-5 text-center text-base"></i>
+            <span>Servicios</span>
+        </a>
+
+        <a href="contactos.html" class="flex items-center justify-start gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white font-medium text-sm transition-all touch-target w-full">
+            <i class="fa-solid fa-address-book w-5 text-center text-base"></i>
+            <span>Contactos</span>
+        </a>
+
+        <a href="usuarios.html" class="flex items-center justify-between px-3 py-3 rounded-lg bg-brand-orange text-white font-medium text-sm transition-all shadow-sm group touch-target w-full">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-users w-5 text-center text-base"></i>
+                <span>Usuarios</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-xs opacity-75"></i>
+        </a>
+    </nav>
+
+    <!-- Footer Sidebar -->
+    <div class="p-3 border-t border-slate-800 space-y-1">
+        <a href="#" class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-red-400 font-medium text-sm transition-all touch-target w-full" id="logout-btn">
+            <i class="fa-solid fa-right-from-bracket w-5 text-center text-base"></i>
+            <span>Cerrar sesión</span>
+        </a>
+    </div>
+</aside>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+    <!-- Header Móvil & Barra Superior -->
+    <header class="bg-white border-b border-slate-200 px-4 py-3 md:px-8 md:py-4 flex items-center justify-between sticky top-0 z-30 shadow-sm">
+        <div class="flex items-center gap-3">
+            <!-- Botón Hamburguesa Móvil -->
+            <button id="open-sidebar-btn" class="md:hidden text-slate-600 hover:text-slate-900 touch-target focus:outline-none" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+            <div>
+                <h2 class="fluid-title font-bold text-slate-900 leading-tight">Usuarios</h2>
+                <p class="text-xs md:text-sm text-slate-500 hidden sm:block">Administra los usuarios del taller</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+                <span class="text-xs md:text-sm text-slate-500 font-medium hidden sm:inline-block" id="current-date">
+                    11/11/2026
+                </span>
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                 alt="Usuario avatar"
+                 class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover ring-2 ring-slate-200"
+                 loading="lazy">
+        </div>
+    </header>
+
+    <!-- Área de Contenido Principal con Scroll -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6">
+
+        <!-- TARJETAS DE MÉTRICAS (Sin Precio Promedio) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+            <!-- Card 1: Total de usuarios -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-orange flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-bold text-slate-900 leading-none" id="total-services">0</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-medium">Total de usuarios</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Usuarios activos -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-bold text-slate-900 leading-none" id="total-active-services">0</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-medium">Usuarios activos</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Usuarios inactivos -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
+                <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+                <div>
+                    <span class="block text-2xl font-bold text-slate-900 leading-none" id="total-inactive-services">0</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-medium">Usuarios inactivos</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BARRA DE HERRAMIENTAS: BÚSQUEDA Y NUEVO USUARIO -->
+        <section class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <div class="relative flex-1 max-w-md">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text"
+                       id="search-input"
+                       placeholder="Buscar usuarios..."
+                       class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all shadow-sm">
+            </div>
+
+            <button id="open-create-modal-btn" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold text-sm px-5 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors touch-target">
+                <i class="fa-solid fa-plus"></i>
+                <span>Nuevo Usuario</span>
+            </button>
+        </section>
+
+        <!-- TABLA Y CARDS DE LISTADO DE USUARIOS -->
+        <section class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+
+            <!-- Vista en Escritorio (Tabla) -->
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                    <tr class="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold tracking-wider text-slate-500 uppercase">
+                        <th class="py-3.5 px-6">NOMBRE</th>
+                        <th class="py-3.5 px-6">USUARIO</th>
+                        <th class="py-3.5 px-6">CORREO</th>
+                        <th class="py-3.5 px-6">ROL</th>
+                        <th class="py-3.5 px-6">ESTADO</th>
+                        <th class="py-3.5 px-6 text-right">ACCIONES</th>
+                    </tr>
+                    </thead>
+                    <tbody id="services-table-body" class="divide-y divide-slate-100 text-sm">
+                    <!-- Filas generadas dinámicamente mediante JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Vista en Móvil / Tablet pequeñas (Tarjetas) -->
+            <div id="services-mobile-container" class="block md:hidden divide-y divide-slate-100">
+                <!-- Tarjetas generadas dinámicamente mediante JS -->
+            </div>
+
+            <!-- FOOTER DE PAGINACIÓN -->
+            <div class="px-6 py-4 bg-slate-50/50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+                <div id="pagination-info">
+                    Mostrando <span class="text-slate-800 font-semibold">0-0</span> de <span class="text-slate-800 font-semibold">0</span> usuarios
+                </div>
+
+                <div id="pagination-controls" class="flex items-center gap-1">
+                    <!-- Botones de paginación generados dinámicamente -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<!-- MODAL FORMULARIO DE USUARIO (CREAR / EDITAR) -->
+<div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+    <!-- Backdrop translúcido de fondo -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity"></div>
+
+    <!-- Contenedor del Modal -->
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden transform transition-all z-10 animate-in fade-in zoom-in duration-200">
+
+        <!-- Header Modal -->
+        <div class="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+            <h3 id="modal-title" class="text-lg font-bold text-slate-900">Nuevo Usuario</h3>
+            <button id="close-modal-btn" class="text-slate-400 hover:text-slate-600 transition-colors touch-target rounded-lg" aria-label="Cerrar modal">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Formulario Modal -->
+        <form id="service-form" class="p-6 space-y-5">
+            <!-- ID oculto para edición -->
+            <input type="hidden" id="user-id" name="user-id" value="">
+
+            <!-- Nombre del Usuario -->
+            <div class="space-y-1.5">
+                <label for="name-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                    NOMBRE
+                </label>
+                <input type="text"
+                       id="name-input"
+                       name="name"
+                       required
+                       placeholder=""
+                       class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs">
+            </div>
+
+            <!-- Username -->
+            <div class="space-y-1.5">
+                <label for="username-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                    NOMBRE DE USUARIO
+                </label>
+                <input type="text"
+                       id="username-input"
+                       name="username"
+                       required
+                       placeholder=""
+                       class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs">
+            </div>
+
+            <!-- Email -->
+            <div class="space-y-1.5">
+                <label for="email-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                    CORREO
+                </label>
+                <input type="text"
+                       id="email-input"
+                       name="email"
+                       required
+                       placeholder=""
+                       class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs">
+            </div>
+
+            <!-- Pass -->
+            <div class="space-y-1.5">
+                <label for="pass-input" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                    CONTRASEÑA
+                </label>
+                <input type="password"
+                       id="pass-input"
+                       name="pass"
+                       placeholder=""
+                       class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs">
+            </div>
+
+            <!-- Fila Rol y Estado -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Categoría (Guarda category_id como entero) -->
+                <div class="space-y-1.5">
+                    <label for="user-role-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                        ROL
+                    </label>
+                    <div class="relative">
+                        <select id="user-role-select"
+                                name="user-role"
+                                class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs appearance-none pr-8">
+                            <option value="1">Administrador</option>
+                            <option value="2">Colaborador</option>
+                            <option value="3">Cliente</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <!-- Estado (Guarda is_active como booleano) -->
+                <div class="space-y-1.5">
+                    <label for="service-status-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                        ESTADO
+                    </label>
+                    <div class="relative">
+                        <select id="service-status-select"
+                                name="service-status"
+                                class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition-all shadow-xs appearance-none pr-8 font-medium">
+                            <option value="true">Activo</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Acciones del Formulario -->
+            <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-100">
+                <button type="button"
+                        id="cancel-modal-btn"
+                        class="px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-colors touch-target">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        id="submit-modal-btn"
+                        class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-sm transition-colors touch-target">
+                    Crear usuario
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JAVASCRIPT CON CLASE USER Y PAGINACIÓN -->
+<script type="module" src="js/appUsers.js" defer></script>
+</body>
+</html>

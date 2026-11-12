@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ubicación | Embragues J. Gómez</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Configuración Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                orange: '#F26522',
+                orangeHover: '#d95416',
+                darkBg: '#0b0f14',
+                cardBg: '#12171f',
+                cardBgHover: '#1a222e',
+                cardBorder: '#1e293b',
+                textMuted: '#94a3b8'
+              }
+            },
+
+            fontFamily: {
+              heading: ['Oswald', 'sans-serif'],
+              body: ['Montserrat', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="bg-brand-darkBg text-gray-200 antialiased selection:bg-brand-orange selection:text-white">
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-darkBg/90 backdrop-blur-md border-b border-gray-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div
+            class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-xl shadow-lg shadow-brand-orange/20">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-xl sm:text-2xl tracking-wider text-white leading-none">
+              EMBRAGUES
+            </span>
+
+            <span class="font-heading text-xs tracking-widest text-brand-orange leading-none mt-1"> J. GÓMEZ </span>
+          </div>
+        </a>
+
+        <!-- NAV DESKTOP -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider" aria-label="Principal">
+            <a href="index.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">INICIO</a>
+            <a href="servicios.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">SERVICIOS</a>
+            <a href="ubicacion.html" aria-current="page" class="text-brand-orange hover:text-brand-orange transition-colors duration-200 py-2">UBICACIÓN</a>
+            <a href="contacto.html" class="text-gray-300 transition-colors duration-200 py-2">CONTACTO</a>
+        </nav>
+
+        <!-- BOTÓN COTIZAR -->
+        <div class="hidden md:block">
+          <a
+            href="index.html#contacto"
+            class="inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-200 shadow-md hover:shadow-brand-orange/30">
+            COTIZAR
+          </a>
+        </div>
+
+        <!-- MENÚ MÓVIL -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-300 hover:text-white">
+          <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+        </button>
+      </div>
+
+      <!-- DESPLEGABLE MÓVIL -->
+      <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-gray-800 px-4 pt-3 pb-6 space-y-3">
+        <a href="index.html#inicio" class="mobile-nav-link block px-3 py-3 text-gray-300 hover:text-brand-orange">
+          INICIO
+        </a>
+
+        <a href="servicios.html" class="mobile-nav-link block px-3 py-3 text-gray-300 hover:text-brand-orange">
+          SERVICIOS
+        </a>
+
+        <a href="ubicacion.html" class="mobile-nav-link block px-3 py-3 text-brand-orange"> UBICACIÓN </a>
+
+        <a href="index.html#contacto" class="mobile-nav-link block px-3 py-3 text-gray-300 hover:text-brand-orange">
+          CONTACTO
+        </a>
+
+        <a
+          href="index.html#contacto"
+          class="mobile-nav-link block w-full text-center px-6 py-3 bg-brand-orange text-white font-heading font-semibold tracking-wider uppercase">
+          COTIZAR
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO UBICACIÓN -->
+    <section
+      class="relative pt-40 pb-24 flex items-center overflow-hidden bg-cover bg-center"
+      style="
+        background-image:
+          linear-gradient(to right, rgba(11, 15, 20, 0.97), rgba(11, 15, 20, 0.8)),
+          url('assets/transmission-workshop.webp');
+      ">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-2 mb-5">
+            <span class="h-0.5 w-8 bg-brand-orange"></span>
+
+            <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase">
+              VISÍTENOS
+            </span>
+          </div>
+
+          <h1 class="font-heading font-bold text-white tracking-wide text-5xl sm:text-6xl lg:text-7xl mb-6">
+            NUESTRA
+
+            <span class="text-brand-orange"> UBICACIÓN </span>
+          </h1>
+
+          <p class="text-gray-300 text-base sm:text-lg max-w-xl font-light leading-relaxed mb-8">
+            Encuentre nuestro taller y conozca los diferentes medios para comunicarse con Embragues J. Gómez.
+          </p>
+
+          <a
+            href="#como-llegar"
+            class="inline-flex items-center justify-center px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200 shadow-lg shadow-brand-orange/20">
+            ENCONTRAR EL TALLER
+
+            <i class="fa-solid fa-location-arrow ml-3 text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section id="como-llegar" class="py-20 bg-brand-darkBg border-t border-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- ENCABEZADO -->
+        <div class="mb-12">
+          <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">
+            CÓMO ENCONTRARNOS
+          </span>
+
+          <h2 class="font-heading font-bold text-white tracking-wide text-3xl sm:text-5xl">
+            VISITE
+
+            <span class="text-brand-orange"> NUESTRO TALLER </span>
+          </h2>
+
+          <div class="w-16 h-1 bg-brand-orange mt-4"></div>
+
+          <p class="text-brand-textMuted text-sm sm:text-base mt-5 max-w-2xl leading-relaxed">
+            Consulte nuestra ubicación en el mapa y encuentre la mejor ruta para llegar a nuestras instalaciones.
+          </p>
+        </div>
+
+        <!-- CONTENEDOR MAPA E INFORMACIÓN -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 border border-brand-cardBorder bg-brand-cardBg overflow-hidden">
+          <!-- PANEL IZQUIERDO -->
+          <div
+            class="lg:col-span-4 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-cardBorder">
+            <div>
+              <div
+                class="w-14 h-14 bg-brand-orange/10 text-brand-orange flex items-center justify-center text-2xl mb-6">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+
+              <h3 class="font-heading font-bold text-2xl text-white tracking-wide mb-4">EMBRAGUES J. GÓMEZ</h3>
+
+              <p class="text-brand-textMuted text-sm leading-relaxed font-light mb-8">
+                Estamos ubicados en Bogotá, Colombia. Consulte el mapa para conocer la ubicación de nuestro
+                establecimiento.
+              </p>
+
+              <!-- DIRECCIÓN -->
+              <div class="flex items-start gap-4 mb-7">
+                <i class="fa-solid fa-location-dot text-brand-orange mt-1"></i>
+
+                <div>
+                  <span class="block text-xs font-heading text-brand-orange tracking-widest uppercase mb-2">
+                    DIRECCIÓN
+                  </span>
+
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Calle 13 #45-67, Zona Industrial
+
+                    <br />
+
+                    Bogotá, Colombia
+                  </p>
+                </div>
+              </div>
+
+              <!-- HORARIO -->
+              <div class="flex items-start gap-4 mb-7">
+                <i class="fa-regular fa-clock text-brand-orange mt-1"></i>
+
+                <div>
+                  <span class="block text-xs font-heading text-brand-orange tracking-widest uppercase mb-2">
+                    HORARIO
+                  </span>
+
+                  <p class="text-gray-300 text-sm leading-relaxed">
+                    Lunes a sábado: 7:00 a. m. - 5:00 p. m.
+
+                    <br />
+
+                    Domingos: 7:00 a. m. - 1:00 p. m.
+                  </p>
+                </div>
+              </div>
+
+              <!-- TELÉFONO -->
+              <div class="flex items-start gap-4">
+                <i class="fa-solid fa-phone text-brand-orange mt-1"></i>
+
+                <div>
+                  <span class="block text-xs font-heading text-brand-orange tracking-widest uppercase mb-2">
+                    TELÉFONO
+                  </span>
+
+                  <a href="tel:+573057693517" class="text-gray-300 text-sm hover:text-brand-orange transition-colors">
+                    +57 305 769 3517
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTÓN RUTA -->
+            <div class="pt-10">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Embragues+J.Gomez+Bogota"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-3 w-full px-6 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200">
+                <i class="fa-solid fa-route"></i>
+
+                CÓMO LLEGAR
+              </a>
+            </div>
+          </div>
+
+          <!-- MAPA GOOGLE MAPS -->
+          <div class="lg:col-span-8 min-h-[380px] lg:min-h-[550px] relative bg-gray-900">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.907004107161!2d-74.18196042316359!3d4.610664442427497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9e670c7bd739%3A0xccc2c67402dadef2!2sEmbragues%20J.Gomez!5e0!3m2!1sen!2sco!4v1793675156025!5m2!1sen!2sco"
+              class="absolute inset-0 w-full h-full border-0"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Ubicación de Embragues J. Gómez en Google Maps">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO RÁPIDO -->
+    <section class="py-20 bg-brand-darkBg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="bg-brand-cardBg border border-brand-cardBorder p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase">
+              ¿TIENE ALGUNA CONSULTA?
+            </span>
+
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
+              ESTAMOS LISTOS PARA ATENDERLE
+            </h2>
+
+            <p class="text-brand-textMuted text-sm leading-relaxed">
+              Si necesita información sobre nuestros servicios o desea realizar una consulta, comuníquese con nosotros.
+            </p>
+          </div>
+
+          <a
+            href="index.html#contacto"
+            class="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200">
+            CONTACTAR
+
+            <i class="fa-solid fa-arrow-right ml-3 text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-gray-900">
+          <!-- MARCA -->
+          <div class="space-y-4">
+            <a href="index.html" class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center text-base">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+
+              <div class="flex flex-col">
+                <span class="font-heading font-bold text-lg tracking-wider text-white leading-none"> EMBRAGUES </span>
+
+                <span class="font-heading text-[10px] tracking-widest text-brand-orange leading-none mt-0.5">
+                  J. GÓMEZ
+                </span>
+              </div>
+            </a>
+
+            <p class="text-xs text-gray-400 max-w-sm leading-relaxed font-light">
+              Especialistas en reparación y mantenimiento de embragues, transmisiones y cajas de cambio para vehículos
+              pesados.
+            </p>
+          </div>
+
+          <!-- SERVICIOS -->
+          <div>
+            <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">SERVICIOS</h4>
+
+            <ul class="space-y-2 text-xs text-gray-400">
+              <li>
+                <a href="servicios.html" class="hover:text-brand-orange transition-colors"> Reparación de Embragues </a>
+              </li>
+
+              <li>
+                <a href="servicios.html" class="hover:text-brand-orange transition-colors">
+                  Reparación de Transmisiones
+                </a>
+              </li>
+
+              <li>
+                <a href="servicios.html" class="hover:text-brand-orange transition-colors"> Cajas de Cambio </a>
+              </li>
+
+              <li>
+                <a href="servicios.html" class="hover:text-brand-orange transition-colors">
+                  Mantenimiento Preventivo
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CONTACTO -->
+          <div>
+            <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">CONTACTO</h4>
+
+            <ul class="space-y-3 text-xs text-gray-400">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-phone text-brand-orange"></i>
+
+                <span>+57 305 769 3517</span>
+              </li>
+
+              <li class="flex items-center gap-2">
+                <i class="fa-regular fa-envelope text-brand-orange"></i>
+
+                <span>info@embraguesjgomez.com</span>
+              </li>
+
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-brand-orange"></i>
+
+                <span>Bogotá, Colombia</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>© 2026 Embragues J. Gómez. Todos los derechos reservados.</p>
+
+          <p>Bogotá, Colombia</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT MENÚ RESPONSIVE -->
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn')
+
+      const mobileMenu = document.getElementById('mobile-menu')
+
+      const menuIcon = document.getElementById('menu-icon')
+
+      // Abrir y cerrar menú
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden')
+
+        const isOpen = !mobileMenu.classList.contains('hidden')
+
+        menuIcon.classList.toggle('fa-bars', !isOpen)
+
+        menuIcon.classList.toggle('fa-xmark', isOpen)
+
+        menuBtn.setAttribute('aria-expanded', isOpen)
+      })
+
+      // Cerrar menú al seleccionar una opción
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden')
+
+          menuIcon.classList.remove('fa-xmark')
+
+          menuIcon.classList.add('fa-bars')
+
+          menuBtn.setAttribute('aria-expanded', 'false')
+        })
+      })
+    </script>
+  </body>
+</html>

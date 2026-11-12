@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embragues J. Gómez - Especialistas en Mecánica Pesada</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Oswald & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F26522',
+                            orangeHover: '#d95416',
+                            darkBg: '#0b0f14',
+                            cardBg: '#12171f',
+                            cardBgHover: '#1a222e',
+                            cardBorder: '#1e293b',
+                            textMuted: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Oswald', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-brand-darkBg text-gray-200 antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-darkBg/90 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-xl shadow-lg shadow-brand-orange/20">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-bold text-xl sm:text-2xl tracking-wider text-white leading-none">EMBRAGUES</span>
+                    <span class="font-heading text-xs tracking-widest text-brand-orange leading-none mt-1">J. GÓMEZ</span>
+                </div>
+            </a>
+
+            <!-- DESKTOP NAV -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider">
+                <a href="#inicio" aria-current="page" class="text-brand-orange transition-colors duration-200 py-2">INICIO</a>
+                <a href="servicios.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">SERVICIOS</a>
+                <a href="ubicacion.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">UBICACIÓN</a>
+                <a href="contacto.html" class="text-gray-300 hover:text-brand-orange transition-colors duration-200 py-2">CONTACTO</a>
+            </nav>
+
+            <!-- CTA BUTTON (Desktop) -->
+            <div class="hidden md:block">
+                <a href="#contacto" class="inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-200 shadow-md hover:shadow-brand-orange/30">
+                    COTIZAR
+                </a>
+            </div>
+
+            <!-- HAMBURGER BUTTON (Mobile) -->
+            <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-gray-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">INICIO</a>
+            <a href="servicios.html" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">SERVICIOS</a>
+            <a href="ubicacion.html" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">UBICACIÓN</a>
+            <a href="contacto.html" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-brand-orange hover:bg-gray-800/50">CONTACTO</a>
+            <div class="pt-2">
+                <a href="#contacto" class="mobile-nav-link block w-full text-center px-6 py-3 bg-brand-orange text-white font-heading font-semibold tracking-wider uppercase">
+                    COTIZAR
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-40 pb-16 flex items-center justify-center overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(11, 15, 20, 0.95), rgba(11, 15, 20, 0.75)), url('assets/hero-truck.webp');">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 my-auto">
+            <div class="max-w-3xl">
+                <!-- Tagline -->
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="h-0.5 w-8 bg-brand-orange"></span>
+                    <span class="text-brand-orange font-heading font-semibold text-sm sm:text-base tracking-widest uppercase">ESPECIALISTAS EN MECÁNICA PESADA</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="hero-title font-heading font-bold text-white mb-6 tracking-wide">
+                    EMBRAGUES, <br>
+                    <span class="text-brand-orange">TRANSMISIONES</span> <br>
+                    Y CAJAS
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-gray-300 text-base sm:text-lg mb-8 max-w-xl font-light leading-relaxed">
+                    Más de 20 años reparando y manteniendo sistemas de transmisión para camiones, buses y maquinaria pesada en toda la región.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16">
+                    <a href="#servicios" class="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold text-base tracking-wider uppercase transition-all duration-200 shadow-lg shadow-brand-orange/20">
+                        VER SERVICIOS <i class="fa-solid fa-chevron-right ml-3 text-xs"></i>
+                    </a>
+                    <a href="#contacto" class="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-transparent hover:bg-white/5 text-white border border-gray-600 hover:border-gray-400 font-heading font-bold text-base tracking-wider uppercase transition-all duration-200">
+                        CONTACTAR
+                    </a>
+                </div>
+
+                <!-- Key Metrics / Stats -->
+                <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-gray-800/80 max-w-2xl">
+                    <div>
+                        <div class="font-heading font-bold text-3xl sm:text-4xl text-brand-orange">20+</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-medium uppercase mt-1 tracking-wider">AÑOS DE EXPERIENCIA</div>
+                    </div>
+                    <div>
+                        <div class="font-heading font-bold text-3xl sm:text-4xl text-brand-orange">500+</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-medium uppercase mt-1 tracking-wider">VEHÍCULOS REPARADOS</div>
+                    </div>
+                    <div>
+                        <div class="font-heading font-bold text-3xl sm:text-4xl text-brand-orange">100%</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-medium uppercase mt-1 tracking-wider">GARANTÍA DE SERVICIO</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NUESTROS SERVICIOS -->
+    <section id="servicios" class="py-24 bg-brand-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="mb-16">
+                <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">LO QUE HACEMOS</span>
+                <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                    NUESTROS <span class="text-brand-orange">SERVICIOS</span>
+                </h2>
+                <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <!-- 
+                Requisito 5: 
+                Al pasar el cursor sobre cada servicio:
+                - El fondo del recuadro se aclara (bg-brand-cardBg -> bg-brand-cardBgHover)
+                - El ícono pasa a fondo naranja e ícono blanco (.service-icon-box & .service-icon)
+            -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Servicio 1 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-wrench service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">REPARACIÓN DE EMBRAGUES</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Diagnóstico y reparación completa de sistemas de embrague para camiones, buses y maquinaria pesada de todas las marcas.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">EMBRAGUE SECO</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">EMBRAGUE HIDRÁULICO</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">DISCOS Y PRENSAS</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-gears service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">REPARACIÓN DE TRANSMISIONES</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Reconstrucción y mantenimiento de cajas de transmisión manual y automática para vehículos de carga y pasajeros.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">TRANSMISIÓN MANUAL</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">AUTOMÁTICA</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">SEMIAUTOMÁTICA</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-sliders service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">CAJAS DE CAMBIO</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Reparación especializada de cajas de cambio de alta exigencia para flotas comerciales, meceras y de construcción.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">CAJAS FULLER</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">ZF</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">EATON</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-oil-can service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">MANTENIMIENTO PREVENTIVO</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Planes de mantenimiento preventivo para prolongar la vida útil de los componentes mecánicos de su flota.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">REVISIÓN PERIÓDICA</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">LUBRICACIÓN</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">AJUSTES Y CALIBRACIÓN</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-magnifying-glass service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">DIAGNÓSTICO TÉCNICO</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Evaluación técnica detallada con equipos especializados para identificar fallas mecánicas ocultas antes de que se conviertan en averías.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">DIAGNÓSTICO ELECTRÓNICO</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">INSPECCIÓN VISUAL</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">PRUEBA DE RUTA</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="group bg-brand-cardBg hover:bg-brand-cardBgHover border border-brand-cardBorder p-8 rounded-none transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="service-icon-box w-12 h-12 rounded-none bg-gray-800/80 group-hover:bg-brand-orange text-brand-orange group-hover:text-white flex items-center justify-center text-xl mb-6 transition-all duration-300">
+                            <i class="fa-solid fa-truck-front service-icon"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-3 tracking-wide">VEHÍCULOS PESADOS</h3>
+                        <p class="text-brand-textMuted text-sm leading-relaxed mb-6 font-light">
+                            Servicio especializado en busetas y camiones de carga.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800/50">
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">BUSETAS</span>
+                        <span class="text-[11px] font-heading bg-gray-900 text-brand-orange px-2.5 py-1 uppercase tracking-wider">CAMIONES DE CARGA</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER INTERMEDIO DE MARCAS -->
+    <section class="relative py-20 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(to right, rgba(11, 15, 20, 0.9), rgba(11, 15, 20, 0.85)), url('assets/transmission-workshop.webp');">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-wider">
+                TRABAJAMOS CON <span class="text-brand-orange">TODAS LAS MARCAS</span> <br class="hidden sm:inline">
+                DE VEHÍCULOS PESADOS
+            </h2>
+        </div>
+    </section>
+
+    <!-- NUESTRA UBICACIÓN -->
+    <section id="ubicacion" class="py-24 bg-brand-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">DÓNDE ESTAMOS</span>
+                <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                    NUESTRA <span class="text-brand-orange">UBICACIÓN</span>
+                </h2>
+                <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+            </div>
+
+            <!-- Location Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-cardBorder rounded-none overflow-hidden bg-brand-cardBg">
+                
+                <!-- Info Panel -->
+                <div class="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-cardBorder">
+                    <div class="space-y-8">
+                        <div>
+                            <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">DIRECCIÓN</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-location-dot text-brand-orange mt-1"></i>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Calle 13 #45-67, Zona Industrial<br>
+                                    Bogotá, Colombia
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">TELÉFONO</span>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-phone text-brand-orange"></i>
+                                <a href="tel:+573001234567" class="text-gray-300 text-sm hover:text-brand-orange transition-colors">+57 305 769 3517</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">HORARIO DE ATENCIÓN</span>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-regular fa-clock text-brand-orange mt-1"></i>
+                                <div class="text-gray-300 text-sm leading-relaxed">
+                                    <p>Lunes - Sábado: 7:00 am - 5:00 pm</p>
+                                    <p>Domingos: 7:00 am - 1:00 pm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-heading tracking-widest text-brand-orange uppercase block mb-1">CORREO ELECTRÓNICO</span>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-regular fa-envelope text-brand-orange"></i>
+                                <a href="mailto:info@embraguesjgomez.com" class="text-gray-300 text-sm hover:text-brand-orange transition-colors">info@embraguesjgomez.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
+                        <a href="#contacto" class="inline-flex w-full items-center justify-center px-6 py-3.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-semibold tracking-wider uppercase transition-all duration-200">
+                            SOLICITAR CITA
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="lg:col-span-7 min-h-[380px] lg:min-h-[450px] relative bg-gray-900">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.907004107161!2d-74.18196042316359!3d4.610664442427497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9e670c7bd739%3A0xccc2c67402dadef2!2sEmbragues%20J.Gomez!5e0!3m2!1sen!2sco!4v1793675156025!5m2!1sen!2sco" width="600" height="450" style="border:0;" class="absolute inset-0 w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTÁCTENOS -->
+    <section id="contacto" class="py-24 bg-brand-darkBg relative border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="mb-12">
+                <span class="text-brand-orange font-heading font-semibold text-sm tracking-widest uppercase block mb-1">HABLEMOS</span>
+                <h2 class="section-title font-heading font-bold text-white tracking-wide">
+                    CONTÁCTENOS
+                </h2>
+                <div class="w-16 h-1 bg-brand-orange mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <p class="text-gray-300 text-base leading-relaxed font-light">
+                        ¿Su vehículo tiene problemas con el embrague, la transmisión o la caja de cambios? Nuestro equipo técnico le brindará diagnóstico y respuesta rápida con garantía escrita.
+                    </p>
+
+                    <!-- Features List -->
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                            <span>Diagnóstico sin costo en taller</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                            <span>Garantía escrita en todos los trabajos</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                            <span>Repuestos originales y alternativos de calidad</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-regular fa-circle-check text-brand-orange text-base"></i>
+                            <span>Servicio a domicilio disponible</span>
+                        </li>
+                    </ul>
+
+                    <!-- Quick Contact Cards -->
+                    <div class="pt-6 space-y-4">
+                        <div class="bg-brand-cardBg border border-brand-cardBorder p-4 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-heading tracking-widest text-gray-400 uppercase block">LLAMAR AHORA</span>
+                                <a href="tel:+573001234567" class="text-white font-semibold text-sm hover:text-brand-orange transition-colors">+57 300 123 4567</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-cardBg border border-brand-cardBorder p-4 flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand-orange/10 text-brand-orange flex items-center justify-center text-lg">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-heading tracking-widest text-gray-400 uppercase block">ESCRIBIRNOS</span>
+                                <a href="mailto:info@embraguesjgomez.com" class="text-white font-semibold text-sm hover:text-brand-orange transition-colors">info@embraguesjgomez.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="lg:col-span-7 bg-brand-cardBg p-6 sm:p-8 border border-brand-cardBorder">
+                    <form id="contact-form" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Nombre -->
+                            <div>
+                                <label for="name" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">NOMBRE *</label>
+                                <input type="text" id="name" required placeholder="Carlos Rodríguez" class="w-full bg-brand-darkBg border border-gray-800 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div>
+                                <label for="phone" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">TELÉFONO *</label>
+                                <input type="tel" id="phone" required placeholder="+57 300 000 0000" class="w-full bg-brand-darkBg border border-gray-800 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Correo Electrónico -->
+                        <div>
+                            <label for="email" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">CORREO ELECTRÓNICO</label>
+                            <input type="email" id="email" placeholder="correo@empresa.com" class="w-full bg-brand-darkBg border border-gray-800 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                        </div>
+
+                        <!-- Servicio Requerido -->
+                        <div>
+                            <label for="service" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">SERVICIO REQUERIDO</label>
+                            <select id="service" class="w-full bg-brand-darkBg border border-gray-800 text-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors">
+                                <option value="" disabled selected>Seleccione un servicio...</option>
+                                <option value="embragues">Reparación de Embragues</option>
+                                <option value="transmisiones">Reparación de Transmisiones</option>
+                                <option value="cajas">Cajas de Cambio</option>
+                                <option value="mantenimiento">Mantenimiento Preventivo</option>
+                                <option value="diagnostico">Diagnóstico Técnico</option>
+                                <option value="otro">Otro Servicio</option>
+                            </select>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div>
+                            <label for="message" class="block text-xs font-heading tracking-wider text-gray-300 uppercase mb-2">DESCRIPCIÓN DEL PROBLEMA *</label>
+                            <textarea id="message" rows="4" required placeholder="Describa brevemente el problema de su vehículo..." class="w-full bg-brand-darkBg border border-gray-800 text-white px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full py-4 min-h-[48px] bg-brand-orange hover:bg-brand-orangeHover text-white font-heading font-bold tracking-wider uppercase transition-all duration-200 shadow-md">
+                            ENVIAR MENSAJE <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success Message Container -->
+                    <div id="form-feedback" class="hidden mt-4 p-4 bg-emerald-900/40 border border-emerald-600 text-emerald-200 text-sm font-medium">
+                        ¡Gracias! Hemos recibido su mensaje. Nos pondremos en contacto muy pronto.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-gray-900">
+                
+                <!-- Columna 1: Brand -->
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center text-base">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-heading font-bold text-lg tracking-wider text-white leading-none">EMBRAGUES</span>
+                            <span class="font-heading text-[10px] tracking-widest text-brand-orange leading-none mt-0.5">J. GÓMEZ</span>
+                        </div>
+                    </a>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed font-light">
+                        Especialistas en reparación y mantenimiento de embragues, transmisiones y cajas de cambio para vehículos pesados.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Links Rápidos -->
+                <div>
+                    <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">SERVICIOS</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Reparación de Embragues</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Reparación de Transmisiones</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Cajas de Cambio</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Mantenimiento Preventivo</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-orange transition-colors">Diagnóstico Técnico</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto Corto -->
+                <div>
+                    <h4 class="font-heading text-xs tracking-widest text-brand-orange uppercase mb-4">CONTACTO</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-orange"></i>
+                            <span>+57 300 123 4567</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-envelope text-brand-orange"></i>
+                            <span>info@embraguesjgomez.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                            <span>Calle 13 #45-67, Zona Industrial, Bogotá</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-brand-orange"></i>
+                            <span>Lun-Vie 7am-6pm • Sáb 7am-2pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>© 2026 Embragues J. Gómez. Todos los derechos reservados.</p>
+                <p>Bogotá, Colombia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LÓGICA RESPONSIVE Y MENÚ -->
+    <script src="js/main.js" defer></script>
+
+    <!-- APLICACIÓN -->
+    <script src="js/contact_form.js" defer></script>
+</body>
+</html>
